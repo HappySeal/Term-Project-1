@@ -16,8 +16,6 @@ tS = 20; %Vac start iter
 rS = 0.05; %Infec prop of vac healthy
 tSec = 3; % Number of iter between two vac.
 w = 0.8; %Second vac prop of health people
-delta3 = function_delta3(20);
-
-% ---
+delta
 
 
