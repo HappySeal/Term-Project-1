@@ -3,7 +3,7 @@
 clear
 clc
 
-% CONSTANTS
+% EXPERIMENT PARAMETERS
 
 T = 20; % Grid Size
 N = 240; % Population Size
@@ -17,6 +17,9 @@ tSec = 3; % Number of iter between two vac.
 w = 0.8; %Second vac prop of health people
 delta3 = function_delta3(20);
 
+% CONSTANTS
+dir = [0,1;1,1;1,0;1,-1;0,-1;-1,-1;-1,0;-1,1];
+
 % ---
 %# Scenerio I
 % Data per Person
@@ -29,44 +32,28 @@ delta3 = function_delta3(20);
 
 
 % Initilization
-PERSON = zeros([N,8]);
-indexInfected = zeros([1, N*delta1]);
-indexIsolated = zeros([1, N*delta1*delta2]);
+[PERSON,indexInfected,indexIsolated] = InitPeople(N,T,delta1,delta2);
 
-for i = 1:N
-    xRandom = randi(T);
-    yRandom = randi(T);
-    while all(PERSON(:,[1,2]) == [xRandom,yRandom])
-        %fprintf("collision for %d %d",xRandom,yRandom)
-        xRandom = randi(T);
-        yRandom = randi(T);
-    end
-    PERSON(i,[1,2]) = [xRandom,yRandom];
-end
 
-for i = 1:N*delta1
-    index = randi(N);
-    while any(indexInfected == index)
-        index = randi(N);
+t = 0;
+while t < 120
+    % MOVEMENT PHASE
+    for i = 1:N
+        index = randi(8);
+        movementVector = dir(index,:) * randi([0 3]);
+        PERSON(i,[1,2]) = PERSON(i,[1,2]) + movementVector;
+        % TODO: If the movement is greater than the boundry of the grid
+        % make sure that it is capped at max position
+
+
     end
 
-    PERSON(index,3) = 1;
-    indexInfected(i) = index;
-end
+    % INFECT PHASE
+    for i = 1:N
 
-for i = 1:N*delta1*delta2
-    index = randi(N*delta1);
-    while any(indexIsolated == indexInfected(index))
-        index = randi(N*delta1);
+
     end
-    index = indexInfected(index);
 
-    PERSON(index,4) = 1;
-    PERSON(index,[5,6]) = PERSON(index,[1,2]);
-
-    indexIsolated(i) = index;
+    t = t + 1;
 end
-
-
-
 
