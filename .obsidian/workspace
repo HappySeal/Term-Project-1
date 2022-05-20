@@ -4,12 +4,12 @@
     "type": "split",
     "children": [
       {
-        "id": "f5a6ba08c4ace629",
+        "id": "f17567411d9fa104",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "IE206 Term Project I.md",
+            "file": "Notes/IE206 Term Project I.md",
             "mode": "source",
             "source": false
           }
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "IE206 Term Project I.md",
+                "file": "Notes/IE206 Term Project I.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,8 +87,9 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "f5a6ba08c4ace629",
+  "active": "f17567411d9fa104",
   "lastOpenFiles": [
+    "Notes/IE206 Term Project I.md",
     "IE206 Term Project I.md",
     "Ekran Görüntüsü (333).png",
     "IE206 ICE8.md"
