@@ -1,6 +1,5 @@
 % CAFER SELLI 2444974
 % ZEYNEP BERIL SAHIN 2587848
-
 clear
 clc
 
@@ -10,7 +9,7 @@ T = 20; % Grid Size
 N = 240; % Population Size
 delta1 = 0.05; %Percentage of Infected people Init
 p = 0.5; %Infection Probability
-delta2 = 0.5; %Percentage of Infected && Isolated
+delta2 = 0.5; %Percentage of Infected && Isolated Init
 M = 30; %Infection duration
 tS = 20; %Vac start iter
 rS = 0.05; %Infec prop of vac healthy
@@ -19,5 +18,53 @@ w = 0.8; %Second vac prop of health people
 delta3 = function_delta3(20);
 
 % ---
+%# Scenerio I
+% Data per Person
+% [1,2] x,y
+% [3]   isInfected 
+% [4]   isIsolated
+% [5,6] whereIsolatedX,whereIsolatedY
+% [7]   isDead
+% [8]   isImmune
+
+
+% Initilization
+PERSON = zeros([N,8]);
+indexInfected = zeros([1, N*delta1]);
+indexIsolated = zeros([1, N*delta1*delta2]);
+
+for i = 1:N
+    xRandom = randi(T);
+    yRandom = randi(T);
+    while all(PERSON(:,[1,2]) == [xRandom,yRandom])
+        %fprintf("collision for %d %d",xRandom,yRandom)
+        xRandom = randi(T);
+        yRandom = randi(T);
+    end
+    PERSON(i,[1,2]) = [xRandom,yRandom];
+end
+
+for i = 1:N*delta1
+    index = randi(N);
+    while any(indexInfected == index)
+        index = randi(N);
+    end
+
+    PERSON(index,3) = 1;
+    indexInfected(i) = index;
+end
+
+for i = 1:N*delta1*delta2
+    index = randi(N*delta1);
+    while any(indexIsolated == index)
+        index = randi(N*delta1);
+    end
+    
+    PERSON(index,4) = 1;
+    indexIsolated(i) = indexInfected(index);
+
+end
+
+
 
 
