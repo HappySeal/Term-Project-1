@@ -39,9 +39,22 @@ t = 0;
 while t < 120
     % MOVEMENT PHASE
     for i = 1:N
+        if PERSON(i,4)==1
+            
+        end
         index = randi(8);
+        while any(PERSON(i,[1,2])+dir(index,:)>T) || any(PERSON(i,[1,2])+dir(index,:)<1)
+            index=randi(8);
+        end
         movementVector = dir(index,:) * randi([0 3]);
+        while any(PERSON(i,[1,2])+movementVector>T) || any(PERSON(i,[1,2])+movementVector<1)
+            movementVector = dir(index,:) * randi([0 3]);
+        end
         PERSON(i,[1,2]) = PERSON(i,[1,2]) + movementVector;
+
+
+
+
         % TODO: If the movement is greater than the boundry of the grid
         % make sure that it is capped at max position
 
