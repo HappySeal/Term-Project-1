@@ -7,6 +7,7 @@
 - Each cell has only one individual at the beginning.They move randomly U[0,3].(Be careful that their positions may not change.) 
 - If they hit a boundry or corner,they can move in the next move. Their movements have equal chances again in the next move.(In such a way they can move ,not in the way of boundry or corner. )
 - Each infected can be healed after M=30 iterations(infection duration). Their chance of healing is 0.95.
+- Examine results for t=120 iterations.
 ![[Ekran Görüntüsü (333).png]]
 ## Conditions for Scenerio 1
 ----
