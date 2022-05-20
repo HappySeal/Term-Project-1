@@ -1,4 +1,4 @@
-function [PERSON,indexInfected,indexIsolated] = InitPeople(N,T,delta1,delta2)
+function [PERSON,indexInfected,indexIsolated] = InitPeople(N,T,M,delta1,delta2)
     PERSON = zeros([N,8]);
     indexInfected = zeros([1, N*delta1]);
     indexIsolated = zeros([1, N*delta1*delta2]);
@@ -20,7 +20,7 @@ function [PERSON,indexInfected,indexIsolated] = InitPeople(N,T,delta1,delta2)
             index = randi(N);
         end
     
-        PERSON(index,3) = 1;
+        PERSON(index,3) = M;
         indexInfected(i) = index;
     end
     
@@ -31,7 +31,7 @@ function [PERSON,indexInfected,indexIsolated] = InitPeople(N,T,delta1,delta2)
         end
         index = indexInfected(index);
     
-        PERSON(index,4) = 1;
+        PERSON(index,4) = M;
         PERSON(index,[5,6]) = PERSON(index,[1,2]);
     
         indexIsolated(i) = index;

@@ -67,13 +67,6 @@ while t < 120
 
 
     end
-    % ITERATION PHASE
-    for i = 1:N
-        % TODO: make iterations go up/down through the iters.
-
-    end
-
-
 
     % INFECT PHASE
     for i = 1:N
@@ -85,9 +78,10 @@ while t < 120
                     index = i;
                 end
                 infected = PERSON(index,:);
-                infectedProbability = (~PERSON(index,8)) && (rand < p);
+                infectedProbability = (rand < p);
                 isolatedProbability = infectedProbability && (rand < qS);
-                PERSON(index,[3,4]) = [M*infectedProbability, M*isolatedProbability];
+                PERSON(inde)
+
             end
         end
     end
