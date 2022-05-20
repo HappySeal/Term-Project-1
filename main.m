@@ -56,13 +56,15 @@ end
 
 for i = 1:N*delta1*delta2
     index = randi(N*delta1);
-    while any(indexIsolated == index)
+    while any(indexIsolated == indexInfected(index))
         index = randi(N*delta1);
     end
-    
-    PERSON(index,4) = 1;
-    indexIsolated(i) = indexInfected(index);
+    index = indexInfected(index);
 
+    PERSON(index,4) = 1;
+    PERSON(index,[5,6]) = PERSON(index,[1,2]);
+
+    indexIsolated(i) = index;
 end
 
 
