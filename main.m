@@ -33,3 +33,9 @@ delta3 = function_delta3(20);
 [PERSON,indexInfected,indexIsolated] = InitPeople(N,T,M,delta1,delta2);
 
 [PERSON,histInfected,histHealed,histDied] = ScenarioI(PERSON,N,T,M,qS,p);
+plot(histInfected)
+hold on
+plot(histHealed)
+plot(histDied)
+hold off
+legend('Infected','Healed','Died')
