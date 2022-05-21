@@ -16,25 +16,26 @@ tS = 20; %Vac start iter
 rS = 0.05; %Infec prop of vac healthy
 tSec = 3; % Number of iter between two vac.
 w = 0.8; %Second vac prop of health people
+delta3 = 0; % rate of vac.
 
 % ---
 %# Scenerio I
 % Data per Person
 % [1,2] x,y
 % [3]   isInfected 
-% [4]   isIsolated
-% [5,6] whereIsolatedX,whereIsolatedY
-% [7]   isDead
-% [8]   isImmune
+% [4]   isDead
+% [5]   isImmune
+% [6]   isVac
+
+[PERSON,indexInfected] = InitPeople_SCII(N,T,M,delta1);
 
 
-% Initilization
-[PERSON,indexInfected,indexIsolated] = InitPeople_SCI(N,T,M,delta1,delta2);
-
-[PERSON,histInfected,histHealed,histDied] = ScenarioI(PERSON,N,T,M,qS,p);
+[PERSON,histInfected,histHealed,histDied,histVaccinated] = ScenarioII(PERSON,N,T,M,p,rS,tS);
 plot(histInfected)
 hold on
 plot(histHealed)
 plot(histDied)
+plot(histVaccinated)
 hold off
-legend('Infected','Healed','Died')
+legend('Infected','Healed','Died','Vaccinated')
+
