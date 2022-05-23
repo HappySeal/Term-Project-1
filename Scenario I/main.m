@@ -31,7 +31,7 @@ w = 0.8; %Second vac prop of health people
 % Initilization
 [PERSON,indexInfected,indexIsolated] = InitPeople_SCI(N,T,M,delta1,delta2);
 
-[PERSON,histInfected,histHealed,histDied] = ScenarioI(PERSON,N,T,M,qS,p);
+[PERSON,histInfected,histHealed,histDied,histNew] = ScenarioI(PERSON,N,T,M,qS,p);
 plot(histInfected,'.-b')
 hold on
 plot(histHealed,'Color','#0bbf44','Marker','.')
@@ -39,4 +39,16 @@ plot(histDied,'.-r')
 hold off
 legend('Infected','Healed','Died')
 title('Number of People Through Iterations')
+
+figure()
+
+subplot(3,1,1);
+plot(histNew(1,:),'.-b');
+title('Infected per Iteration🤒')
+subplot(3,1,2);
+plot(histNew(2,:),'Color','#0bbf44','Marker','.');
+title('Healed per Iteration🙌')
+subplot(3,1,3);
+plot(histNew(3,:),'.-r');
+title('Died per Iteration💀')
 

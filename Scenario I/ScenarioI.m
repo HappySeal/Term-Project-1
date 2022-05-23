@@ -1,10 +1,11 @@
-function [newPERSON,histInfected,histHealed,histDied] = ScenarioI(PERSON,N,T,M,qS,p)  
+function [newPERSON,histInfected,histHealed,histDied,histNew] = ScenarioI(PERSON,N,T,M,qS,p)  
     % CONSTANTS
     dir = [0,1;1,1;1,0;1,-1;0,-1;-1,-1;-1,0;-1,1];
 
     histInfected = zeros([1,120]);
     histHealed = zeros([1,120]);
     histDied = zeros([1,120]);
+    histNew = zeros([3,120]);
 
     t = 1;
     while t <= 120
@@ -73,8 +74,10 @@ function [newPERSON,histInfected,histHealed,histDied] = ScenarioI(PERSON,N,T,M,q
                     if(PERSON(i,3) == 0)
                         if(rand < 0.95)
                             PERSON(i,8) = 1;
+                            histNew(2,t) = histNew(2,t) + 1;
                         else
                             PERSON(i,7) = 1;
+                            histNew(3,t) = histNew(3,t) + 1;
                         end
                     end
                 end
@@ -99,6 +102,7 @@ function [newPERSON,histInfected,histHealed,histDied] = ScenarioI(PERSON,N,T,M,q
                                 isolatedProbability = infectedProbability && (rand < qS);
                                 PERSON(index,[3,4]) = [M*infectedProbability, M*isolatedProbability];
                                 PERSON(index,[5,6]) = PERSON(index,[1,2]) * isolatedProbability;
+                                histNew(1,t) = histNew(1,t) + infectedProbability;
                             end
                         end
                     end

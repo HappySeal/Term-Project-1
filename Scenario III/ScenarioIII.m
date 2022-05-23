@@ -1,4 +1,4 @@
-function [newPERSON,histInfected,histHealed,histDied,histVaccinated] = ScenarioIII(PERSON,N,T,M,qS,p,rS,tS)  
+function [newPERSON,histInfected,histHealed,histDied,histVaccinated,histNew,histNewVac,histVacDead] = ScenarioIII(PERSON,N,T,M,qS,p,rS,tS)  
     % CONSTANTS
     dir = [0,1;1,1;1,0;1,-1;0,-1;-1,-1;-1,0;-1,1];
 
@@ -6,13 +6,20 @@ function [newPERSON,histInfected,histHealed,histDied,histVaccinated] = ScenarioI
     histHealed = zeros([1,120]);
     histDied = zeros([1,120]);
     histVaccinated = zeros([1,120]);
+    histNew = zeros([3,120]);
+    histNewVac = zeros([1,120]);
+    histVacDead = zeros([1,120]);
 
     t = 1;
+    vac = 0;
     while t <= 120
         histInfected(t) = sum(PERSON(:,3) > 0);
         histHealed(t) = sum(PERSON(:,8) > 0);
         histDied(t) = sum(PERSON(:,7) > 0);
-        histVaccinated(t) = sum(PERSON(:,9) > 0);
+        if t > 1
+            histVaccinated(t) = histVaccinated(t-1) + vac;
+            histNewVac(t) = vac;
+        end
 
         % MOVEMENT PHASE
         for i = 1:N
@@ -75,8 +82,13 @@ function [newPERSON,histInfected,histHealed,histDied,histVaccinated] = ScenarioI
                     if(PERSON(i,3) == 0)
                         if(rand < 0.95)
                             PERSON(i,8) = 1;
+                             histNew(2,t) = histNew(2,t) + 1;
                         else
                             PERSON(i,7) = 1;
+                            if(PERSON(i,9) == 1)
+                                histVacDead(t) = histVacDead(t) + 1;
+                            end
+                            histNew(3,t) = histNew(2,t) + 1;
                         end
                     end
                 end
@@ -103,6 +115,7 @@ function [newPERSON,histInfected,histHealed,histDied,histVaccinated] = ScenarioI
                                 isolatedProbability = infectedProbability && (rand < qS);
                                 PERSON(index,[3,4]) = [M*infectedProbability, M*isolatedProbability];
                                 PERSON(index,[5,6]) = PERSON(index,[1,2]) * isolatedProbability;
+                                histNew(1,t) = histNew(1,t) + infectedProbability;
                             end
                         end
                     end
@@ -112,6 +125,7 @@ function [newPERSON,histInfected,histHealed,histDied,histVaccinated] = ScenarioI
     
         % VACCINATION PHASE
         if t >= tS
+            vac = 0;
             healthyPEOPLE = find(all(PERSON(:,[3,7,8,9]) == 0,2));
             n = length(healthyPEOPLE);
             
@@ -134,6 +148,7 @@ function [newPERSON,histInfected,histHealed,histDied,histVaccinated] = ScenarioI
                 
                     PERSON(healthyPEOPLE(index),9) = 1;
                     indexVaccinated(i) = index;
+                    vac = vac + 1;
                 end
             end
         end

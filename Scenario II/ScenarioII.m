@@ -1,4 +1,4 @@
-function [newPERSON,histInfected,histHealed,histDied,histVaccinated] = ScenarioII(PERSON,N,T,M,p,rS,tS)  
+function [newPERSON,histInfected,histHealed,histDied,histVaccinated,histNew,histNewVac,histVacDead] = ScenarioII(PERSON,N,T,M,p,rS,tS)  
     % CONSTANTS
     dir = [0,1;1,1;1,0;1,-1;0,-1;-1,-1;-1,0;-1,1];
 
@@ -6,13 +6,21 @@ function [newPERSON,histInfected,histHealed,histDied,histVaccinated] = ScenarioI
     histVaccinated = zeros([1,120]);
     histHealed = zeros([1,120]);
     histDied = zeros([1,120]);
+    histNew = zeros([3,120]);
+    histNewVac = zeros([1,120]);
+    histVacDead = zeros([1,120]);
 
     t = 1;
+    vac = 0;
     while t <= 120
         histInfected(t) = sum(PERSON(:,3) > 0);
         histHealed(t) = sum(PERSON(:,5) > 0);
         histDied(t) = sum(PERSON(:,4) > 0);
-        histVaccinated(t) = sum(PERSON(:,6) > 0);
+        if t > 1
+            histVaccinated(t) = histVaccinated(t-1) + vac;
+            histNewVac(t) = vac;
+        end
+        vac = 0;
 
         % MOVEMENT PHASE
         for i = 1:N
@@ -62,8 +70,13 @@ function [newPERSON,histInfected,histHealed,histDied,histVaccinated] = ScenarioI
                     if(PERSON(i,3) == 0)
                         if(rand < 0.95)
                             PERSON(i,5) = 1;
+                            histNew(2,t) = histNew(2,t) + 1; 
                         else
                             PERSON(i,4) = 1;
+                            histNew(3,t) = histNew(3,t) + 1; 
+                            if(PERSON(i,6) == 1)
+                                histVacDead(t) = histVacDead(t) + 1;
+                            end
                         end
                     end
                 end
@@ -92,6 +105,7 @@ function [newPERSON,histInfected,histHealed,histDied,histVaccinated] = ScenarioI
                     end
                 
                     PERSON(healthyPEOPLE(index),6) = 1;
+                    vac = vac + 1;
                     indexVaccinated(i) = index;
                 end
             end
@@ -115,6 +129,7 @@ function [newPERSON,histInfected,histHealed,histDied,histVaccinated] = ScenarioI
                                     infectedProbability = (~PERSON(index,5)) && (rand < rS);
                                 end
                                 PERSON(index,3) = M*infectedProbability;
+                                histNew(1,t) = histNew(1,t) + 1;
                             end
                         end
                     end

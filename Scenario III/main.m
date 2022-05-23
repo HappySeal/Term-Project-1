@@ -2,6 +2,7 @@
 % ZEYNEP BERIL SAHIN 2587848
 clear
 clc
+close all
 
 % EXPERIMENT PARAMETERS
 
@@ -31,7 +32,7 @@ w = 0.8; %Second vac prop of health people
 % Initilization
 [PERSON,indexInfected,indexIsolated] = InitPeople_SCIII(N,T,M,delta1,delta2);
 
-[PERSON,histInfected,histHealed,histDied,histVaccinated] = ScenarioIII(PERSON,N,T,M,qS,p,rS,tS);
+[PERSON,histInfected,histHealed,histDied,histVaccinated,histNew,histNewVac,histVacDead] = ScenarioIII(PERSON,N,T,M,qS,p,rS,tS);
 plot(histInfected,'.-b')
 hold on
 plot(histHealed,'Color','#0bbf44','Marker','.')
@@ -40,3 +41,20 @@ plot(histVaccinated,'Color','#a35fe3','Marker','.')
 hold off
 legend('Infected','Healed','Died','Vaccinated')
 title('Number of People Through Iterations')
+
+figure()
+subplot(3,2,1);
+plot(histNew(1,:),'.-b');
+title('Infected per Iteration😒')
+subplot(3,2,2);
+plot(histNew(2,:),'Color','#0bbf44','Marker','.');
+title('Healed per Iteration😍')
+subplot(3,2,3);
+plot(histNew(3,:),'.-r');
+title('Died per Iteration⚰')
+subplot(3,2,4);
+plot(histNewVac,'Color','#a35fe3','Marker','.');
+title('Vaccinated per Iteration🙌🎉')
+subplot(3,2,5);
+plot(histVacDead);
+title('Died but Vaccinated per Iteration😥')
