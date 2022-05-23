@@ -39,25 +39,13 @@ w = 0.8; %Second vac prop of health people
     histNewVac,...
     histVacDead,...
 ] = ScenarioIV(PERSON,N,T,M,qS,p,rS,tS,w);
-
-
 plot(histTotal(1,:))
 hold on
 plot(histTotal(2,:))
 plot(histTotal(3,:))
 plot(histVaccinated)
 hold off
-
-
-figure()
-subplot(2,2,1);
-plot(histTotal(1,:))
-subplot(2,2,2);
-plot(histTotal(2,:))
-subplot(2,2,3);
-plot(histTotal(3,:))
-subplot(2,2,4);
-plot(histVaccinated)
+legend('Infected','Healed','Died','Vaccinated')
 figure()
 
 subplot(3,2,1);
@@ -68,5 +56,4 @@ subplot(3,2,3);
 plot(histNew(3,:));
 subplot(3,2,4);
 plot(histNewVac);
-subplot(3,2,5);
 plot(histVacDead);
