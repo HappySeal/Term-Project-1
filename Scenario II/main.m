@@ -31,11 +31,11 @@ delta3 = 0; % rate of vac.
 
 
 [PERSON,histInfected,histHealed,histDied,histVaccinated] = ScenarioII(PERSON,N,T,M,p,rS,tS);
-plot(histInfected)
+plot(histInfected,'.-b')
 hold on
-plot(histHealed)
-plot(histDied)
-plot(histVaccinated)
+plot(histHealed,'Color','#0bbf44','Marker','.')
+plot(histDied,'.-r')
+plot(histVaccinated,'Color','#a35fe3','Marker','.')
 hold off
 legend('Infected','Healed','Died','Vaccinated')
 

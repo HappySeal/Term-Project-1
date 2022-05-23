@@ -32,10 +32,10 @@ w = 0.8; %Second vac prop of health people
 [PERSON,indexInfected,indexIsolated] = InitPeople_SCIII(N,T,M,delta1,delta2);
 
 [PERSON,histInfected,histHealed,histDied,histVaccinated] = ScenarioIII(PERSON,N,T,M,qS,p,rS,tS);
-plot(histInfected)
+plot(histInfected,'.-b')
 hold on
-plot(histHealed)
-plot(histDied)
-plot(histVaccinated)
+plot(histHealed,'Color','#0bbf44','Marker','.')
+plot(histDied,'.-r')
+plot(histVaccinated,'Color','#a35fe3','Marker','.')
 hold off
 legend('Infected','Healed','Died')
