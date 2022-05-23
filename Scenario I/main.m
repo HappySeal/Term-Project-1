@@ -38,4 +38,5 @@ plot(histHealed,'Color','#0bbf44','Marker','.')
 plot(histDied,'.-r')
 hold off
 legend('Infected','Healed','Died')
+title('Number of People Through Iterations')
 

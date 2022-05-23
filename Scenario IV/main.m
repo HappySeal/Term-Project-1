@@ -40,33 +40,43 @@ w = 0.8; %Second vac prop of health people
     histVacDead,...
 ] = ScenarioIV(PERSON,N,T,M,qS,p,rS,tS,w);
 
-
-plot(histTotal(1,:))
+plot(histTotal(1,:),'.-b')
+title('Number of People Through Iterations')
 hold on
-plot(histTotal(2,:))
-plot(histTotal(3,:))
-plot(histVaccinated)
+plot(histTotal(2,:),'Color','#0bbf44','Marker','.')
+plot(histTotal(3,:),'.-r')
+plot(histVaccinated,'Color','#a35fe3','Marker','.')
 hold off
+legend('Infected','Healed','Died','Vaccinated')
 
 
 figure()
 subplot(2,2,1);
-plot(histTotal(1,:))
+plot(histTotal(1,:),'.-b')
+title('Infected😷')
 subplot(2,2,2);
-plot(histTotal(2,:))
+plot(histTotal(2,:),'Color','#0bbf44','Marker','.')
+title('Healed😜')
 subplot(2,2,3);
-plot(histTotal(3,:))
+plot(histTotal(3,:),'.-r')
+title('Dead☠')
 subplot(2,2,4);
-plot(histVaccinated)
+plot(histVaccinated,'Color','#a35fe3','Marker','.')
+title('Vaccinated💉')
 figure()
 
 subplot(3,2,1);
-plot(histNew(1,:));
+plot(histNew(1,:),'.-b');
+title('Infected per Iteration😒')
 subplot(3,2,2);
-plot(histNew(2,:));
+plot(histNew(2,:),'Color','#0bbf44','Marker','.');
+title('Healed per Iteration😍')
 subplot(3,2,3);
-plot(histNew(3,:));
+plot(histNew(3,:),'.-r');
+title('Died per Iteration⚰')
 subplot(3,2,4);
-plot(histNewVac);
+plot(histNewVac,'Color','#a35fe3','Marker','.');
+title('Vaccinated per Iteration🙌🎉')
 subplot(3,2,5);
 plot(histVacDead);
+title('Died but Vaccinated per Iteration😥')
