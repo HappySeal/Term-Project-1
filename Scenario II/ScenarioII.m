@@ -47,8 +47,9 @@ function [newPERSON,histInfected,histHealed,histDied,histVaccinated] = ScenarioI
                 end
                 
                 maxMag = min(angles);
-
-                PERSON(i,[1,2]) = PERSON(i,[1,2]) + dir(index,:) * maxMag;
+                
+                movementVector = dir(index,:) * min(maxMag,randi([0 3]));
+                PERSON(i,[1,2]) = PERSON(i,[1,2]) + movementVector;
             end
         end
         % ITERATION PHASE
@@ -73,7 +74,6 @@ function [newPERSON,histInfected,histHealed,histDied,histVaccinated] = ScenarioI
         if t >= tS
             healthyPEOPLE = find(all(PERSON(:,[3,4,5,6]) == 0,2));
             n = length(healthyPEOPLE);
-            disp(n);
             if n > 0
                 delta3 = 1 / (2 * (t - 19));
                 numOfVaccinated = delta3 * n;
@@ -123,6 +123,9 @@ function [newPERSON,histInfected,histHealed,histDied,histVaccinated] = ScenarioI
         end
     
         t = t + 1;
+%         scatter(PERSON(:,1),PERSON(:,2))
+%         pause(0.3);
+
     end
     newPERSON = PERSON;
 end

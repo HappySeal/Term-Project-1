@@ -1,16 +1,18 @@
-function [newPERSON,histInfected,histHealed,histDied] = ScenarioI(PERSON,N,T,M,qS,p)  
+function [newPERSON,histInfected,histHealed,histDied,histVaccinated] = ScenarioIV(PERSON,N,T,M,qS,p,rS,tS)  
     % CONSTANTS
     dir = [0,1;1,1;1,0;1,-1;0,-1;-1,-1;-1,0;-1,1];
 
     histInfected = zeros([1,120]);
     histHealed = zeros([1,120]);
     histDied = zeros([1,120]);
+    histVaccinated = zeros([1,120]);
 
     t = 1;
     while t <= 120
         histInfected(t) = sum(PERSON(:,3) > 0);
         histHealed(t) = sum(PERSON(:,8) > 0);
         histDied(t) = sum(PERSON(:,7) > 0);
+        histVaccinated(t) = sum(PERSON(:,9) > 0);
 
         % MOVEMENT PHASE
         for i = 1:N
@@ -81,8 +83,6 @@ function [newPERSON,histInfected,histHealed,histDied] = ScenarioI(PERSON,N,T,M,q
             end
         end
     
-    
-    
         % INFECT PHASE
         for i = 1:N
             if ~PERSON(i,7)
@@ -95,7 +95,11 @@ function [newPERSON,histInfected,histHealed,histDied] = ScenarioI(PERSON,N,T,M,q
                                 else
                                     index = i;
                                 end
-                                infectedProbability = (~PERSON(index,8)) && (rand < p);
+                                if ~PERSON(index,9)
+                                    infectedProbability = (~PERSON(index,8)) && (rand < p);
+                                else
+                                    infectedProbability = (~PERSON(index,8)) && (rand < rS);
+                                end
                                 isolatedProbability = infectedProbability && (rand < qS);
                                 PERSON(index,[3,4]) = [M*infectedProbability, M*isolatedProbability];
                                 PERSON(index,[5,6]) = PERSON(index,[1,2]) * isolatedProbability;
@@ -106,9 +110,51 @@ function [newPERSON,histInfected,histHealed,histDied] = ScenarioI(PERSON,N,T,M,q
             end
         end
     
+
+        % SECOND PHASE VACCINATION
+        for i = 1:N
+            if ~PERSON(i,7) && ~PERSON(i,8)
+                if PERSON(i,9) > 0
+                    PERSON(i,9) = PERSON(i,9) - 1;
+                    if PERSON(i,9) == 0
+                        if rand < w
+                            PEA
+                        end
+                    end
+                end
+            end
+        end
+
+        % VACCINATION PHASE
+        if t >= tS
+            healthyPEOPLE = find(all(PERSON(:,[3,7,8,9]) == 0,2));
+            n = length(healthyPEOPLE);
+            
+            if n > 0
+                delta3 = 1 / (2 * (t - 19));
+                numOfVaccinated = delta3 * n;
+                
+                if rand < numOfVaccinated - floor(numOfVaccinated)
+                    numOfVaccinated = ceil(numOfVaccinated);
+                else
+                     numOfVaccinated = floor(numOfVaccinated);
+                end
+    
+                indexVaccinated = zeros([1,numOfVaccinated]);
+                for i = 1:numOfVaccinated
+                    index = randi(n);
+                    while any(indexVaccinated == index)
+                        index = randi(n);
+                    end
+                
+                    PERSON(healthyPEOPLE(index),9) = 3;
+                    indexVaccinated(i) = index;
+                end
+            end
+        end
+    
+
         t = t + 1;
-%         scatter(PERSON(:,1),PERSON(:,2))
-%         pause(0.3);
     end
     newPERSON = PERSON;
 end
