@@ -43,12 +43,12 @@ title('Number of People Through Iterations')
 figure()
 
 subplot(3,1,1);
-plot(histNew(1,:),'.-b');
+bar(histNew(1,:),'blue','EdgeColor','blue');
 title('Infected per Iteration🤒')
 subplot(3,1,2);
-plot(histNew(2,:),'Color','#0bbf44','Marker','.');
+bar(histNew(2,:),'FaceColor','#0bbf44','EdgeColor','#0bbf44');
 title('Healed per Iteration🙌')
 subplot(3,1,3);
-plot(histNew(3,:),'.-r');
+bar(histNew(3,:),'FaceColor','r','EdgeColor','r');
 title('Died per Iteration💀')
 

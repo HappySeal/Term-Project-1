@@ -44,17 +44,17 @@ title('Number of People Through Iterations')
 
 figure()
 subplot(3,2,1);
-plot(histNew(1,:),'.-b');
+bar(histNew(1,:),'FaceColor','b','EdgeColor','b');
 title('Infected per Iteration😒')
 subplot(3,2,2);
-plot(histNew(2,:),'Color','#0bbf44','Marker','.');
+bar(histNew(2,:),'FaceColor','#0bbf44','EdgeColor','#0bbf44');
 title('Healed per Iteration😍')
 subplot(3,2,3);
-plot(histNew(3,:),'.-r');
+bar(histNew(3,:),'FaceColor','r','EdgeColor','r');
 title('Died per Iteration⚰')
 subplot(3,2,4);
-plot(histNewVac,'Color','#a35fe3','Marker','.');
+bar(histNewVac,'FaceColor','#a35fe3','EdgeColor','#a35fe3');
 title('Vaccinated per Iteration🙌🎉')
 subplot(3,2,5);
-plot(histVacDead);
+bar(histVacDead);
 title('Died but Vaccinated per Iteration😥')
