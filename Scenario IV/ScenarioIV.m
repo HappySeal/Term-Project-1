@@ -1,4 +1,4 @@
-function [newPERSON,histTotal,histNew,histVaccinated,histNewVac,histVacDead] = ScenarioIV(PERSON,N,T,M,qS,p,rS,tS,w)  
+function [newPERSON,histTotal,histNew,histVaccinated,histNewVac,histVacDead,histDoubleVac,histNewDoubleVac] = ScenarioIV(PERSON,N,T,M,qS,p,rS,tS,w)  
     % CONSTANTS
     dir = [0,1;1,1;1,0;1,-1;0,-1;-1,-1;-1,0;-1,1];
 
@@ -7,6 +7,10 @@ function [newPERSON,histTotal,histNew,histVaccinated,histNewVac,histVacDead] = S
     histVaccinated = zeros([1,120]);
     histNewVac = zeros([1,120]);
     histVacDead = zeros([1,120]);
+    histDoubleVac = zeros([1,120]);
+    histNewDoubleVac = zeros([1,120]);
+    
+
     vac = 0;
 
     t = 1;
@@ -17,6 +21,7 @@ function [newPERSON,histTotal,histNew,histVaccinated,histNewVac,histVacDead] = S
         if t > 1
             histVaccinated(t) = histVaccinated(t-1) + vac;
             histNewVac(t) = vac;
+            histDoubleVac(t) = histDoubleVac(t-1);
         end
 
         % MOVEMENT PHASE
@@ -138,6 +143,8 @@ function [newPERSON,histTotal,histNew,histVaccinated,histNewVac,histVacDead] = S
                             PERSON(i,8) = 1;
                             PERSON(i,9) = 2;
                             vac = vac + 1;
+                            histNewDoubleVac(t) = histNewDoubleVac(t) + 1;
+                            histDoubleVac(t) = histDoubleVac(t) + 1;
                         end
                     end
                 end
