@@ -10,7 +10,7 @@ N = 240; % Population Size
 delta1 = 0.05; %Percentage of Infected people Init
 p = 0.5; %Infection Probability
 delta2 = 0.5; %Percentage of Infected && Isolated Init
-qS = 0.5;
+qS = 0.5; % Isolation Probability
 M = 30; %Infection duration
 tS = 20; %Vac start iter
 rS = 0.05; %Infec prop of vac healthy
@@ -19,7 +19,7 @@ w = 0.8; %Second vac prop of health people
 delta3 = 0; % rate of vac.
 
 % ---
-%# Scenerio I
+%# Scenerio II
 % Data per Person
 % [1,2] x,y
 % [3]   isInfected 
