@@ -19,7 +19,7 @@ tSec = 3; % Number of iter between two vac.
 w = 0.8; %Second vac prop of health people
 
 % ---
-%# Scenerio I
+%# Scenerio IV
 % Data per Person
 % [1,2] x,y
 % [3]   isInfected 
