@@ -83,3 +83,29 @@
 - **If an individual gets infected after the first vaccination,she/he will not be vaccinated for the second time.**(counted as fully protected since once an infected point is healed, it will not be infected again)
 
 ---
+
+Scenario I
+
+Infected -  234.4100
+Healed -228.4300
+Died -11.4500
+
+Scenario II
+
+Infected - 220.4500  
+Healed - 215.1900
+Died -10.9800
+
+Scenario III
+
+Infected - 1.  216.7700 
+Healed -212.5900
+Died -11.5700
+
+Scenario IV
+
+Infected - 216.3900 
+Healed -205.3900
+Died -11.4100
+
+---
