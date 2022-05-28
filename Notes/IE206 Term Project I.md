@@ -104,8 +104,20 @@ Died -11.5700
 
 Scenario IV
 
-Infected - 216.3900 
+Infected - 216.3900
 Healed -205.3900
 Died -11.4100
 
 ---
+# Part II:Alternative Scenarios
+## 1.
+- Under only the isolation policy is implemented, the effect of isolation probability is examined by changing the original isolation probability. By setting the value to a higher and lower values, total number of infected and dead people through the iterations are graphed according to the simulation (figurea figureb figurec)
+- In all three cases ,where the isolation probability is low,moderate and high, all of the population gets infected. However, according to the number of people per iteration data (figure dcsnkvfs) the number of iteration where the peak of infected people occurs and the peak value changes depending on the isolation probability. In figure(0.2 per iteration),where the isolation probability equals 20%, peak occurs earlier, closer to 15th iteration in the simulation. In contrast,in the case of original scenario where the isolation probability equals 50%, peak of infected people occurs approximately at 20th iteration. In the case where isolation probability is equal to 80%, the peak occurs approximately at the same iteration with the 50% probability but the span of the infected people per iteration is larger. Even after the 40th iteration, there are still new people getting infected. The reason behind this situation is due to the less iterations between infected and healthy people. The higher the isolation probability gets, the more people that has not infected yet in the later iterations who can still get infected. 
+- The peak values of the infected people in the case of isolation probability equals 20% is higher than other cases because more people gets infected in a short amount of iterations. This situation might lead to some failure in the healthcare system.
+- The total number of dead people in all three cases are equal since in all three situations, all of the population gets infected and death probabilities are the same for people in the isolated and non-isolated infected people.
+
+## 2.
+- Under only the vaccination policy is implemented, the effect of vaccination rate  is examined by changing the original vaccination rate function. 
+$$
+\\0.2\bigg(\frac{1}{t_v-19}\bigg)\leftarrow0.5\bigg(\frac{1}{t_v-19}\bigg)\rightarrow 0.8\bigg(\frac{1}{t_v-19}\bigg)\
+$$
