@@ -104,8 +104,37 @@ Died -11.5700
 
 Scenario IV
 
-Infected - 216.3900 
+Infected - 216.3900
 Healed -205.3900
 Died -11.4100
 
+vaccinated but infected
+assuming 3 iterations
+tekli grafikleri appendixe
+
+
 ---
+# Part II:Alternative Scenarios
+## 1.
+- Under only the isolation policy is implemented, the effect of isolation probability is examined by changing the original isolation probability. By setting the value to a higher and lower values, total number of infected and dead people through the iterations are graphed according to the simulation (figurea figureb figurec)
+- In all three cases ,where the isolation probability is low,moderate and high, all of the population gets infected. However, according to the number of people per iteration data (figure dcsnkvfs) the number of iteration where the peak of infected people occurs and the peak value changes depending on the isolation probability. In figure(0.2 per iteration),where the isolation probability equals 20%, peak occurs earlier, closer to 15th iteration in the simulation. In contrast,in the case of original scenario where the isolation probability equals 50%, peak of infected people occurs approximately at 20th iteration. In the case where isolation probability is equal to 80%, the peak occurs approximately at the same iteration with the 50% probability but the span of the infected people per iteration is larger. Even after the 40th iteration, there are still new people getting infected. The reason behind this situation is due to the less iterations between infected and healthy people. The higher the isolation probability gets, the more people that has not infected yet in the later iterations who can still get infected. 
+- The peak values of the infected people in the case of isolation probability equals 20% is higher than other cases because more people gets infected in a short amount of iterations. This situation might lead to some failure in the healthcare system.
+- The total number of dead people in all three cases are equal since in all three situations, all of the population gets infected and death probabilities are the same for people in the isolated and non-isolated infected people.
+
+## 2.
+- Under only the vaccination policy is implemented, the effect of vaccination rate  is examined by changing the original vaccination rate function. 
+$$
+\\0.2\bigg(\frac{1}{t_v-19}\bigg)\leftarrow0.5\bigg(\frac{1}{t_v-19}\bigg)\rightarrow 0.8\bigg(\frac{1}{t_v-19}\bigg)\
+$$
+- According to the figure(0.2 vaccination rate overall) where the vaccination rate of the population is lower , the more of the population gets infected and even after the 20th iteration, infection amount keeps growing and eventually all of the population gets infected. However, in the case of higher vaccination rates (0.8 vaccination rate overall) , after the 20th iteration,slope of the total infection curve decreases rapidly. This situation indicates that spread of the virus can be controlled with higher rates of vaccination.
+- In all three cases where the vaccination rate is low,moderate and high(figures 0.2 0.5 0.8 per iteration), the pandemic unfolds in two waves. However, peak of the waves are inversly proportional to the vaccination rate. In the case of vaccination rate of 0.2, peak of the second wave almost exceeds 50 people per iteration. In contrast, for coefficient of vaccination rates of 0.5 and 0.8,peak occurs around 40 people per iteration.
+- Total number of dead people is affected from the vaccination as well up to a certain treashold. For coefficient of 0.5, number of dead people is approximated as 11.47 in 100 Monte-Carlo simulations. As the vaccination rate goes down to 0.2, number of dead people increased to 12.01. However as the coefficient of the vaccination rate goes up to 0.8, number of dead people is approximately equal to 11.5, which is almost the same as coefficient of vaccination rate 0.5. This means that speed of vaccination prevents deaths up to a certain level. 
+
+
+## 3.
+- Under the policy of vaccination and isolation together, keeping the isolation probability at its original value q_s=0.5, the effect of vaccination rate  is examined by changing the original vaccination rate function. 
+$$
+\\0.2\bigg(\frac{1}{t_v-19}\bigg)\leftarrow0.5\bigg(\frac{1}{t_v-19}\bigg)\rightarrow 0.8\bigg(\frac{1}{t_v-19}\bigg)\
+$$
+- According to the (figures 0.2 0.5 0.8 vaccination rate overall),as the vaccination rate becomes higher, the number of dead people decreases. This situation can be seen clearly in (figures 0.2 0.5 0.8 vaccination rates per iteration).  In the case where isolation probability is kept as constant and vaccination rate is decreased to 0.2,(figure 0.2 per iteration), people died in each iteration on average is more than vaccination rate of 0.8 with the same isolation probability. (figure 0.8 per iteration)
+- 
