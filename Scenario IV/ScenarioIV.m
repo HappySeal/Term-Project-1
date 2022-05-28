@@ -142,7 +142,6 @@ function [newPERSON,histTotal,histNew,histVaccinated,histNewVac,histVacDead,hist
                         if rand < w
                             PERSON(i,8) = 1;
                             PERSON(i,9) = 2;
-                            vac = vac + 1;
                             histNewDoubleVac(t) = histNewDoubleVac(t) + 1;
                             histDoubleVac(t) = histDoubleVac(t) + 1;
                         end
