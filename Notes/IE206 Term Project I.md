@@ -137,4 +137,20 @@ $$
 \\0.2\bigg(\frac{1}{t_v-19}\bigg)\leftarrow0.5\bigg(\frac{1}{t_v-19}\bigg)\rightarrow 0.8\bigg(\frac{1}{t_v-19}\bigg)\
 $$
 - According to the (figures 0.2 0.5 0.8 vaccination rate overall),as the vaccination rate becomes higher, the number of dead people decreases. This situation can be seen clearly in (figures 0.2 0.5 0.8 vaccination rates per iteration).  In the case where isolation probability is kept as constant and vaccination rate is decreased to 0.2,(figure 0.2 per iteration), people died in each iteration on average is more than vaccination rate of 0.8 with the same isolation probability. (figure 0.8 per iteration)
+
+
+
+
+
+## 4.
+- Under the policy of vaccination and isolation together, keeping the vaccination rate at its original value according to the function...WRITE HERE THE FUNCTION IN LATEX , the effect of infection probability  is examined by changing the original probability q_s=0.5.
+
+
+
+
+
+
+
+## 5.
+- Under the double vaccination scenario, given the isolation probability in Scenario I (q_S=0.5), the effect of second vaccination rate  is examined by changing the original rate w=0.8.
 - 
