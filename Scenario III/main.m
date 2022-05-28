@@ -17,6 +17,7 @@ tS = 20; %Vac start iter
 rS = 0.05; %Infec prop of vac healthy
 tSec = 3; % Number of iter between two vac.
 w = 0.8; %Second vac prop of health people
+delta3 = 0.5;
 
 % ---
 %# Scenerio III
@@ -32,7 +33,7 @@ w = 0.8; %Second vac prop of health people
 % Initilization
 [PERSON,indexInfected,indexIsolated] = InitPeople_SCIII(N,T,M,delta1,delta2);
 
-[PERSON,histInfected,histHealed,histDied,histVaccinated,histNew,histNewVac,histVacDead] = ScenarioIII(PERSON,N,T,M,qS,p,rS,tS);
+[PERSON,histInfected,histHealed,histDied,histVaccinated,histNew,histNewVac,histVacDead,histVacInfect] = ScenarioIII(PERSON,N,T,M,qS,p,rS,tS,delta3);
 plot(histInfected,'.-b')
 hold on
 plot(histHealed,'Color','#0bbf44','Marker','.')
@@ -56,5 +57,8 @@ subplot(3,2,4);
 bar(histNewVac,'FaceColor','#a35fe3','EdgeColor','#a35fe3');
 title('Vaccinated per Iteration🙌🎉')
 subplot(3,2,5);
-bar(histVacDead);
+bar(histVacDead,'FaceColor','#35464a','EdgeColor','#35464a');
 title('Died but Vaccinated per Iteration😥')
+subplot(3,2,6);
+bar(histVacInfect,'FaceColor','#a13358','EdgeColor','#a13358');
+title('Infected but Vaccinated per Iteration😥')

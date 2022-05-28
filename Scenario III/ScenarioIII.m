@@ -1,4 +1,4 @@
-function [newPERSON,histInfected,histHealed,histDied,histVaccinated,histNew,histNewVac,histVacDead] = ScenarioIII(PERSON,N,T,M,qS,p,rS,tS)  
+function [newPERSON,histInfected,histHealed,histDied,histVaccinated,histNew,histNewVac,histVacDead,histVacInfect] = ScenarioIII(PERSON,N,T,M,qS,p,rS,tS,delta3)  
     % CONSTANTS
     dir = [0,1;1,1;1,0;1,-1;0,-1;-1,-1;-1,0;-1,1];
 
@@ -9,6 +9,7 @@ function [newPERSON,histInfected,histHealed,histDied,histVaccinated,histNew,hist
     histNew = zeros([3,120]);
     histNewVac = zeros([1,120]);
     histVacDead = zeros([1,120]);
+    histVacInfect = zeros([1,120]);
 
     t = 1;
     vac = 0;
@@ -82,13 +83,13 @@ function [newPERSON,histInfected,histHealed,histDied,histVaccinated,histNew,hist
                     if(PERSON(i,3) == 0)
                         if(rand < 0.95)
                             PERSON(i,8) = 1;
-                             histNew(2,t) = histNew(2,t) + 1;
+                            histNew(2,t) = histNew(2,t) + 1;
                         else
                             PERSON(i,7) = 1;
                             if(PERSON(i,9) == 1)
                                 histVacDead(t) = histVacDead(t) + 1;
                             end
-                            histNew(3,t) = histNew(2,t) + 1;
+                            histNew(3,t) = histNew(3,t) + 1;
                         end
                     end
                 end
@@ -111,6 +112,7 @@ function [newPERSON,histInfected,histHealed,histDied,histVaccinated,histNew,hist
                                     infectedProbability = (~PERSON(index,8)) && (rand < p);
                                 else
                                     infectedProbability = (~PERSON(index,8)) && (rand < rS);
+                                    histVacInfect(t) = histVacInfect(t) + infectedProbability;
                                 end
                                 isolatedProbability = infectedProbability && (rand < qS);
                                 PERSON(index,[3,4]) = [M*infectedProbability, M*isolatedProbability];
@@ -130,8 +132,7 @@ function [newPERSON,histInfected,histHealed,histDied,histVaccinated,histNew,hist
             n = length(healthyPEOPLE);
             
             if n > 0
-                delta3 = 1 / (2 * (t - 19));
-                numOfVaccinated = delta3 * n;
+                numOfVaccinated = delta3 * n / (t - 19);
                 
                 if rand < numOfVaccinated - floor(numOfVaccinated)
                     numOfVaccinated = ceil(numOfVaccinated);

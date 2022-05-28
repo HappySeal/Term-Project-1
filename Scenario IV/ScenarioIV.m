@@ -1,4 +1,4 @@
-function [newPERSON,histTotal,histNew,histVaccinated,histNewVac,histVacDead,histDoubleVac,histNewDoubleVac] = ScenarioIV(PERSON,N,T,M,qS,p,rS,tS,w)  
+function [newPERSON,histTotal,histNew,histVaccinated,histNewVac,histVacDead,histDoubleVac,histNewDoubleVac,histVacInfect] = ScenarioIV(PERSON,N,T,M,qS,p,rS,tS,w)  
     % CONSTANTS
     dir = [0,1;1,1;1,0;1,-1;0,-1;-1,-1;-1,0;-1,1];
 
@@ -9,6 +9,7 @@ function [newPERSON,histTotal,histNew,histVaccinated,histNewVac,histVacDead,hist
     histVacDead = zeros([1,120]);
     histDoubleVac = zeros([1,120]);
     histNewDoubleVac = zeros([1,120]);
+    histVacInfect = zeros([1,120]);
     
 
     vac = 0;
@@ -118,6 +119,7 @@ function [newPERSON,histTotal,histNew,histVaccinated,histNewVac,histVacDead,hist
                                     if(infectedProbability)
                                         PERSON(index,8) = 1;
                                         PERSON(index,9) = 1;
+                                        histVacInfect(t) = histVacInfect(t) + 1;
                                     end
                                 end
                                 isolatedProbability = infectedProbability && (rand < qS);

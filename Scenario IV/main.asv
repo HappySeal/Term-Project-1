@@ -11,7 +11,7 @@ N = 240; % Population Size
 delta1 = 0.05; %Percentage of Infected people Init
 p = 0.5; %Infection Probability
 delta2 = 0.5; %Percentage of Infected && Isolated Init
-qS = 0.5;
+qS = 0.5; % Isolation Probability
 M = 30; %Infection duration
 tS = 20; %Vac start iter
 rS = 0.05; %Infec prop of vac healthy
@@ -19,7 +19,7 @@ tSec = 3; % Number of iter between two vac.
 w = 0.8; %Second vac prop of health people
 
 % ---
-%# Scenerio I
+%# Scenerio IV
 % Data per Person
 % [1,2] x,y
 % [3]   isInfected 
@@ -40,6 +40,7 @@ w = 0.8; %Second vac prop of health people
     histVacDead,...
     histDoubleVac,...
     histNewDoubleVac,...
+    histNew
 ] = ScenarioIV(PERSON,N,T,M,qS,p,rS,tS,w);
 
 plot(histTotal(1,:),'.-b')
@@ -81,8 +82,8 @@ subplot(3,2,4);
 bar(histNewVac,'FaceColor','#a35fe3','EdgeColor','#a35fe3');
 title('Vaccinated per Iteration🙌🎉')
 subplot(3,2,5);
-bar(histVacDead);
+bar(histVacDead,'FaceColor','#35464a','EdgeColor','#35464a');
 title('Died but Vaccinated per Iteration😥')
 subplot(3,2,6);
-bar(histNewDoubleVac,'FaceColor','#ffb300','EdgeColor','#ffb300');
-title('Double Vaccinated per Iteration')
+bar(histVacInfect,'FaceColor','#a13358','EdgeColor','#a13358');
+title('Infected but Vaccinated per Iteration😥')

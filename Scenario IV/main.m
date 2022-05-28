@@ -40,6 +40,7 @@ w = 0.8; %Second vac prop of health people
     histVacDead,...
     histDoubleVac,...
     histNewDoubleVac,...
+    histVacInfect,...
 ] = ScenarioIV(PERSON,N,T,M,qS,p,rS,tS,w);
 
 plot(histTotal(1,:),'.-b')
@@ -81,8 +82,8 @@ subplot(3,2,4);
 bar(histNewVac,'FaceColor','#a35fe3','EdgeColor','#a35fe3');
 title('Vaccinated per Iteration🙌🎉')
 subplot(3,2,5);
-bar(histVacDead);
+bar(histVacDead,'FaceColor','#35464a','EdgeColor','#35464a');
 title('Died but Vaccinated per Iteration😥')
 subplot(3,2,6);
-bar(histNewDoubleVac,'FaceColor','#ffb300','EdgeColor','#ffb300');
-title('Double Vaccinated per Iteration')
+bar(histVacInfect,'FaceColor','#a13358','EdgeColor','#a13358');
+title('Infected but Vaccinated per Iteration😥')
