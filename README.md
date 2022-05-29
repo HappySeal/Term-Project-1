@@ -15,7 +15,7 @@ Predicting the behavior of the virus enables decision-makers to develop and impl
 - If they hit a boundry or corner,they can move in the next move. Their movements have equal chances again in the next move.(In such a way they can move ,not in the way of boundry or corner. )
 - Each infected can be healed after M=30 iterations(infection duration). Their chance of healing is 0.95.
 - Examine results for t=120 iterations.
-![[Attachments/Ekran Görüntüsü (333).png]]
+![Alt text](./Attachments/Ekran Görüntüsü (333).png "Title")
 
 
 
