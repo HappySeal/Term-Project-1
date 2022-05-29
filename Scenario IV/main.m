@@ -66,9 +66,12 @@ plot(histTotal(3,:),'.-r')
 title('Dead☠')
 subplot(2,2,4);
 plot(histVaccinated,'Color','#a35fe3','Marker','.')
+hold on
+plot(histDoubleVac,'Color','#ffb300','Marker','.')
+hold off
+legend('Vaccinated','Double Vaccinated')
 title('Vaccinated💉')
 figure()
-
 subplot(3,2,1);
 bar(histNew(1,:),'FaceColor','b','EdgeColor','b');
 title('Infected per Iteration😒')

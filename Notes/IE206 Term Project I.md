@@ -147,4 +147,9 @@ $$
 
 ## e.
 - Under the double vaccination scenario, given the isolation probability in Scenario I (q_S=0.5), the effect of second vaccination rate is examined by changing the original rate w=0.8.
-- Even though for different second vaccination rates the total number of infection amount changes, it is independent from the second vaccination rate itself for the first 20 iterations.
+- Even though for different second vaccination rates the total number of infection amount changes, it is independent from the second vaccination rate itself for the first 20 iterations. After the 20th iteration,as the vaccination and second vaccination starts, in the case of lower second vaccination rates(0.2 overall),more of the population gets infected comparing to the higher second vaccination rates(0.8 overall).
+- Total number of dead people is also affected by changing the second vaccination rates under same isolation probability as in Scenario I. According to (figure 0.2 overall), number of total dead people is higher when second vaccination rate is decreased to 20%,comparing to the case where second vaccination rate is 80%.(figure 0.8 overall). This correlation can be guaranteed also by checking the  second vaccination rate of 50% under the same isolation probability(figure 0.5 overall). Total number of dead people takes place in the middle of lower and higher second vaccination rates(20% and 80% respectively). This means that higher rates of second vaccination prevents deaths if isolation policy is implemented at the same time.
+
+
+## Conclusion 
+In this project, we simulated the spread of the Corona virus and its effects on the population under different restrictions and protections. Based on findings obtained from the simulation, making inferences about the possible policies decision-makers implement is 
