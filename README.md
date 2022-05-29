@@ -15,7 +15,7 @@ Predicting the behavior of the virus enables decision-makers to develop and impl
 - If they hit a boundry or corner,they can move in the next move. Their movements have equal chances again in the next move.(In such a way they can move ,not in the way of boundry or corner. )
 - Each infected can be healed after M=30 iterations(infection duration). Their chance of healing is 0.95.
 - Examine results for t=120 iterations.
-![[Ekran Görüntüsü (333).png]]
+![[Attachments/Ekran Görüntüsü (333).png]]
 
 
 
@@ -25,7 +25,7 @@ Predicting the behavior of the virus enables decision-makers to develop and impl
 - Vaccination has not started in this Scenerio so no need to think about variables of vaccination.
 - Initially it is assumed that %50 of the infected people are isolated until they are getting healed(for M=30 iterations).
 - !! Isolation means infected person can be found in the neighbour cells where the infection has occured (If person go did not get infected in boundaries or corners, it can be found in 9 cells during its isolation. Otherwise,you have to check corner cells where it got infected. ) The probability of moving is the same for all directions.!!
-![[Ekran Görüntüsü (335).png]]
+![[Attachments/Ekran Görüntüsü (335).png]]
 
 - If a non-infected and infected person coincide in a cell, the probability of infection is 0.5.
 - A newly infected person will be isolated with a probability of 0.5.(And stay isolated for 30 iterations). It may break the rule with 0.5 probability and in this case,it continues to move around regularly.
