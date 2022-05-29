@@ -1,5 +1,5 @@
 # Term-Project-1
-IE206 Term Project 1 by ZBS &amp; CS
+IE206 Term Project 1 by Zeynep Beril Sahin &amp; Cafer Selli
 
 This project is a pandemic simulation for a grid-based environment. By moving the main elements, people in the population, with a random-walk principle based on uniform distribution, our simulation embraces the everyday movements of the people that can not be predicted. Also, by adjusting different parameters that could be a solution to the epidemic, such as vaccination or isolation, predicting the behavior of the virus could be possible.
 
