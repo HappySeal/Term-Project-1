@@ -136,20 +136,15 @@ $$
 $$
 \\0.2\bigg(\frac{1}{t_v-19}\bigg)\leftarrow0.5\bigg(\frac{1}{t_v-19}\bigg)\rightarrow 0.8\bigg(\frac{1}{t_v-19}\bigg)\
 $$
-- write here infected
+- As can be seen in (figure 0.2 overall), when the vaccination rate is 20%, almost all of the population gets infected around the same time. And this brings the pandemic into a fast conclusion.This many cases around the same time might lead to failure in the healthcare system. In contrast, when the vaccination rate increases to 80% (figure 0.8 overall, some people in the population is not even infected. Also, the pandemic unfolds in a longer time period. In (figure 0.2 overall), it can be seen that starting from the 60th iteration,there is no new cases of infection. But in (figures 0.5 and 0.8 overall), this number reaches to almost 80th iteration. Similar to Alternative for the Scenario II, where the vaccination rate is high,slope of the infection curve decreases comparing to the same scenario with lower vaccination rate.
 
-
-- According to the (figures 0.2 0.5 0.8 vaccination rate overall),as the vaccination rate becomes higher, the number of dead people decreases. This situation can be seen clearly comparing (figures 0.2 0.5 0.8 vaccination rate overall).  In the case where isolation probability is kept as constant and vaccination rate is decreased to 0.2,(figure 0.2 overall), people died in total on average is more than vaccination rate of 0.8 with the same isolation probability(figure 0.8 overall) . In the case of vaccination probability 0.2, number of dead people is equal to 17 (in figure 0.2 overall) whereas when vaccination probability increases to 0.5, that value decreases to 11(in figure 0.5 overall). Even though this correlation applies until a certain threshold, if the vactination rate keeps increasing under the same isolation probability, total number of dead people does not affected significantly similar to the Alternative Scenario b.(in figure 0.8 overall)
+- According to the (figures 0.2 0.5 0.8 vaccination rate overall),as the vaccination rate becomes higher, the number of dead people decreases. This situation can be seen clearly comparing (figures 0.2 0.5 0.8 vaccination rate overall).  In the case where isolation probability is kept as constant and vaccination rate is decreased to 0.2,(figure 0.2 overall), people died in total on average is more than vaccination rate of 0.8 with the same isolation probability(figure 0.8 overall) . In the case of vaccination probability 0.2, number of dead people is equal to 17 (in figure 0.2 overall) whereas when vaccination probability increases to 0.5, that value decreases to 11(in figure 0.5 overall). Even though this correlation applies until a certain threshold, if the vactination rate keeps increasing under the same isolation probability, total number of dead people does not affected significantly similar to the Alternative Scenario II.(in figure 0.8 overall)
 
 ## d.
-- Under the policy of vaccination and isolation together, keeping the vaccination rate at its original value according to the function...WRITE HERE THE FUNCTION IN LATEX , the effect of infection probability  is examined by changing the original probability q_s=0.5.
-
-
-
-
-
-
+- Under the policy of vaccination and isolation together, keeping the vaccination rate at its original value according to the function...WRITE HERE THE FUNCTION IN LATEX , the effect of infection probability is examined by changing the original probability q_s=0.5.
+- The lower isolation probability under the same vaccination rate affects both total number of infection and total number of vaccination. As the number of interactions between people increases due to the low isolation probability, total number of infection increases in earlier iterations. Because of this, there will be less healthy people to vaccinate when the vaccination starts. This can be seen by comparing the vaccination amounts in (figure 0.2 overall) and (figure 0.8 overall). The total number of infected people in the case where isolation probability equals to 80% is lower than 200. This number increases to 240.
+- Total number of dead people also affected by the changing isolation probabilities under the same vaccination rates. As the isolation probability increases, total number of dead people decreases since there will be less interaction and less chance to get infected in the first place.
 
 ## e.
-- Under the double vaccination scenario, given the isolation probability in Scenario I (q_S=0.5), the effect of second vaccination rate  is examined by changing the original rate w=0.8.
+- Under the double vaccination scenario, given the isolation probability in Scenario I (q_S=0.5), the effect of second vaccination rate is examined by changing the original rate w=0.8.
 - 
