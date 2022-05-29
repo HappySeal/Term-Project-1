@@ -142,9 +142,9 @@ $$
 
 ## d.
 - Under the policy of vaccination and isolation together, keeping the vaccination rate at its original value according to the function...WRITE HERE THE FUNCTION IN LATEX , the effect of infection probability is examined by changing the original probability q_s=0.5.
-- The lower isolation probability under the same vaccination rate affects both total number of infection and total number of vaccination. As the number of interactions between people increases due to the low isolation probability, total number of infection increases in earlier iterations. Because of this, there will be less healthy people to vaccinate when the vaccination starts. This can be seen by comparing the vaccination amounts in (figure 0.2 overall) and (figure 0.8 overall). The total number of infected people in the case where isolation probability equals to 80% is lower than 200. This number increases to 240.
+- The lower isolation probability under the same vaccination rate affects both total number of infection and total number of vaccination. As the number of interactions between people increases due to the low isolation probability, total number of infection increases in earlier iterations. Because of this, there will be less healthy people to vaccinate when the vaccination starts. This can be seen by comparing the vaccination amounts in (figure 0.2 overall) and (figure 0.8 overall). The total number of infected people in the case where isolation probability equals to 80% is lower than 200. This number increases to 240 when the probability equals 20%.
 - Total number of dead people also affected by the changing isolation probabilities under the same vaccination rates. As the isolation probability increases, total number of dead people decreases since there will be less interaction and less chance to get infected in the first place.
 
 ## e.
 - Under the double vaccination scenario, given the isolation probability in Scenario I (q_S=0.5), the effect of second vaccination rate is examined by changing the original rate w=0.8.
-- 
+- Even though for different second vaccination rates the total number of infection amount changes, it is independent from the second vaccination rate itself for the first 20 iterations.
